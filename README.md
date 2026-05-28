@@ -36,6 +36,48 @@ The pipeline executes through a sequence of modular, isolated steps:
 ### Installation
 
 1. Clone this repository to your local machine:
-   ```bash
-   git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
-   cd your-repo-name
+```bash
+git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+cd your-repo-name
+```
+2. Create and activate a virtual environment (optional but highly recommended):
+# On macOS/Linux
+# On macOS/Linux
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+# On Windows
+```bash
+python -m venv venv
+.\venv\Scripts\activate
+```
+
+3. Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
+### Running the Pipeline
+Execute the primary script to run the successful pipeline followed by the automated failure demonstration:
+```bash
+python main.py
+```
+
+###Log Output Example
+Upon running the script, your terminal and the freshly generated ml_pipeline.log file will populate with the following runtime logs:
+```bash
+2026-05-28 20:15:32,114 - INFO - Loading dataset...
+2026-05-28 20:15:32,230 - INFO - Dataset loaded successfully (150 rows).
+2026-05-28 20:15:32,234 - INFO - Data validation successful.
+2026-05-28 20:15:32,235 - INFO - Starting data preprocessing...
+2026-05-28 20:15:32,241 - INFO - Data preprocessing completed.
+2026-05-28 20:15:32,241 - INFO - Starting model training...
+2026-05-28 20:15:32,245 - INFO - Model trained successfully.
+2026-05-28 20:15:32,245 - INFO - Starting model predictions...
+2026-05-28 20:15:32,249 - INFO - Test accuracy: 1.00
+2026-05-28 20:15:32,249 - INFO - Prediction sample: [1, 0, 2, 1, 1]
+2026-05-28 20:15:32,249 - INFO - Pipeline completed successfully.
+2026-05-28 20:15:32,249 - INFO - Running failure demonstration on corrupted data...
+2026-05-28 20:15:32,254 - ERROR - Data validation error: Missing values detected in the dataset.
+```
