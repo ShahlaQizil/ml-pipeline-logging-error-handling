@@ -64,7 +64,7 @@ def preprocess_and_split(iris):
     """Fill any missing values and split into train/test sets."""
     try:
         logger.info("Starting data preprocessing...")
-        X = iris.data.fillna(0)
+        X = iris.data
         y = iris.target
         X_train, X_test, y_train, y_test = train_test_split(
             X, y, test_size=0.2, random_state=42
